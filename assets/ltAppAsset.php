@@ -22,7 +22,7 @@ class ltAppAsset extends AssetBundle
 
     public $js = [
     "js/html5shiv.js",
-    "js/respond.min.js",
+    //"js/respond.min.js",
     ];
 
     public $jsOptions = [
