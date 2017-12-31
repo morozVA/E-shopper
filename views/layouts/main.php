@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use app\widgets\Alert;
@@ -29,10 +30,10 @@ ltAppAsset::register($this);
     <?php $this->head() ?>
 
     <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body>
@@ -69,7 +70,7 @@ ltAppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                        <a href="index.html"><img src="/images/home/logo.png" alt=""/></a>
                     </div>
                     <div class="btn-group pull-right">
                         <div class="btn-group">
@@ -115,7 +116,8 @@ ltAppAsset::register($this);
             <div class="row">
                 <div class="col-sm-9">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -155,7 +157,7 @@ ltAppAsset::register($this);
     </div><!--/header-bottom-->
 </header><!--/header-->
 
-<?=$content;?>
+<?= $content; ?>
 
 <footer id="footer"><!--Footer-->
     <div class="footer-top">
@@ -172,7 +174,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="images/home/iframe1.png" alt="" />
+                                    <img src="/images/home/iframe1.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -187,7 +189,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="images/home/iframe2.png" alt="" />
+                                    <img src="/images/home/iframe2.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -202,7 +204,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="images/home/iframe3.png" alt="" />
+                                    <img src="/images/home/iframe3.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -217,7 +219,7 @@ ltAppAsset::register($this);
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="images/home/iframe4.png" alt="" />
+                                    <img src="/images/home/iframe4.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -230,7 +232,7 @@ ltAppAsset::register($this);
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="images/home/map.png" alt="" />
+                        <img src="/images/home/map.png" alt=""/>
                         <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                     </div>
                 </div>
@@ -293,9 +295,10 @@ ltAppAsset::register($this);
                     <div class="single-widget">
                         <h2>About Shopper</h2>
                         <form action="#" class="searchform">
-                            <input type="text" placeholder="Your email address" />
-                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-                            <p>Get the most recent updates from <br />our site and be updated your self...</p>
+                            <input type="text" placeholder="Your email address"/>
+                            <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i>
+                            </button>
+                            <p>Get the most recent updates from <br/>our site and be updated your self...</p>
                         </form>
                     </div>
                 </div>
@@ -308,13 +311,13 @@ ltAppAsset::register($this);
         <div class="container">
             <div class="row">
                 <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+                <p class="pull-right">Designed by <span><a target="_blank"
+                                                           href="http://www.themeum.com">Themeum</a></span></p>
             </div>
         </div>
     </div>
 
 </footer><!--/Footer-->
-
 
 
 <?php $this->endBody() ?>
