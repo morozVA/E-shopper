@@ -136,10 +136,10 @@ $this->title = 'My Yii Application';
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
                                         <?php if($hit->new) :?>
-                                            <img src="images/home/new.png" class="new" alt="new">
+                                            <img src="/images/home/new.png" class="new" alt="new">
                                         <?php endif; ?>
                                         <?php if($hit->sale) :?>
-                                            <img src="images/home/sale.png" class="sale" alt="sale">
+                                            <img src="/images/home/sale.png" class="sale" alt="sale">
                                         <?php endif; ?>
                                     </div>
                                     <div class="choose">
