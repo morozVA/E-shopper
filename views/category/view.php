@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use \yii\helpers\Url;
 use yii\widgets\LinkPager;
 
 ?>
@@ -65,9 +66,9 @@ use yii\widgets\LinkPager;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name])?>
+                                            <a href="<?=Url::to(['product/view', 'id' => $product->id]);?>"><?= Html::img("@web/images/products/{$product->img}", ['alt' => $product->name])?></a>
                                             <h2>$<?= $product->price ?></h2>
-                                            <p><?= $product->name ?></p>
+                                            <p><a href="<?=Url::to(['product/view', 'id' => $product->id]);?>"><?= $product->name ?></a></p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
                                         <?php if($product->new) :?>
