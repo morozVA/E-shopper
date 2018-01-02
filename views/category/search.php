@@ -57,10 +57,10 @@ use yii\widgets\LinkPager;
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center"><?=$category->name;?></h2>
+                    <h2 class="title text-center">Search: <?=Html::encode($q);?></h2>
 
                     <?php if(!empty($products)) : ?>
-                    <?php $i=0; ?>
+                        <?php $i=0; ?>
                         <?php foreach ($products as $product) : ?>
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
@@ -86,10 +86,10 @@ use yii\widgets\LinkPager;
                                     </div>
                                 </div>
                             </div>
-                        <?php $i++; ?>
-                        <?php if($i % 3 == 0) : ?>
-                            <div class="cleafrix"></div>
-                        <?php endif; ?>
+                            <?php $i++; ?>
+                            <?php if($i % 3 == 0) : ?>
+                                <div class="cleafrix"></div>
+                            <?php endif; ?>
                         <?php endforeach; ?>
 
                         <div class="clearfix"></div>
@@ -97,7 +97,7 @@ use yii\widgets\LinkPager;
                         <?= LinkPager::widget(['pagination' => $pages]); ?>
 
                     <?php else: ?>
-                        <h2>Products not found</h2>
+                        <h2>Nothing found in your search request</h2>
                     <?php endif; ?>
 
                 </div><!--features_items-->
