@@ -11,6 +11,7 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\Product;
 use Yii;
+use yii\data\Pagination;
 use yii\web\Request;
 
 class CategoryController extends AppController
@@ -23,6 +24,7 @@ class CategoryController extends AppController
     {
 
         $hits = Product::find()->where(['hit' => '1'])->limit(6)->all();
+        $this->setMeta('E-shopper');
         return $this->render('index', compact('hits'));
 
     }
@@ -35,9 +37,16 @@ class CategoryController extends AppController
     {
 
         $id = Yii::$app->request->get('id');
-        $products = Product::find()->where(['category_id' => $id])->limit(6)->all();
-        return $this->render('view', compact('products'));
-
+        //$products = Product::find()->where(['category_id' => $id])->limit(6)->all();
+        $query = Product::find()->where(['category_id' => $id]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 6, 'forcePageParam' => false, 'pageSizeParam' => false]);
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+        $category = Category::findOne($id);
+        $this->setMeta('E-shopper | ' . $category->name, $category->keywords, $category->description);
+        return $this->render('view', compact('products','pages', 'category'));
     }
 
 }
+
+
+

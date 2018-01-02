@@ -3,8 +3,8 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
-$this->title = 'My Yii Application';
 ?>
 
 <section id="advertisement">
@@ -56,7 +56,7 @@ $this->title = 'My Yii Application';
 
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
-                    <h2 class="title text-center">Features Items</h2>
+                    <h2 class="title text-center"><?=$category->name;?></h2>
 
                     <?php if(!empty($products)) : ?>
                     <?php $i=0; ?>
@@ -91,18 +91,22 @@ $this->title = 'My Yii Application';
                         <?php endif; ?>
                         <?php endforeach; ?>
 
+                        <div class="clearfix"></div>
+
+                        <?= LinkPager::widget(['pagination' => $pages]); ?>
+
                     <?php else: ?>
                         <h2>Products not found</h2>
                     <?php endif; ?>
 
-                    <div class="clearfix"></div>
 
-                    <ul class="pagination">
-                        <li class="active"><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">&raquo;</a></li>
-                    </ul>
+
+<!--                    <ul class="pagination">-->
+<!--                        <li class="active"><a href="">1</a></li>-->
+<!--                        <li><a href="">2</a></li>-->
+<!--                        <li><a href="">3</a></li>-->
+<!--                        <li><a href="">&raquo;</a></li>-->
+<!--                    </ul>-->
                 </div><!--features_items-->
             </div>
         </div>
