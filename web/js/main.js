@@ -31,4 +31,25 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+
+
+	$('.add-to-cart').on('click',function (e) {
+		e.preventDefault();
+		var id = $(this).data('id');
+		$.ajax({
+			url: '/cart/add',
+			data: {id: id},
+			method: 'GET',
+			success: function ($res) {
+				if(!$res) alert('arr!');
+				console.log($res);
+				//showCart();
+            },
+			error: function () {
+				alert('error!');
+            }
+		});
+    });
+
+
 });
