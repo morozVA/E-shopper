@@ -130,16 +130,20 @@ use \yii\helpers\Url;
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <a href="<?=Url::to(['product/view', 'id' => $hit->id]);?>"><?= Html::img("@web/images/products/{$hit->img}", ['alt' => $hit->name])?></a>
+                                            <a href="<?= Url::to(['product/view', 'id' => $hit->id]); ?>"><?= Html::img("@web/images/products/{$hit->img}", ['alt' => $hit->name]) ?></a>
                                             <h2>$<?= $hit->price ?></h2>
-                                            <p><a href="<?=Url::to(['product/view', 'id' => $hit->id]);?>"><?= $hit->name ?></a></p>
-                                            <a data-id="<?=$hit->id;?>" href="<?=Url::to(['cart/add', 'id' => $hit->id]) ;?>" class="btn btn-default add-to-cart">
+                                            <p>
+                                                <a href="<?= Url::to(['product/view', 'id' => $hit->id]); ?>"><?= $hit->name ?></a>
+                                            </p>
+                                            <a data-id="<?= $hit->id; ?>"
+                                               href="<?= Url::to(['cart/add', 'id' => $hit->id]); ?>"
+                                               class="btn btn-default add-to-cart">
                                                 <i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
-                                        <?php if($hit->new) :?>
+                                        <?php if ($hit->new) : ?>
                                             <img src="/images/home/new.png" class="new" alt="new">
                                         <?php endif; ?>
-                                        <?php if($hit->sale) :?>
+                                        <?php if ($hit->sale) : ?>
                                             <img src="/images/home/sale.png" class="sale" alt="sale">
                                         <?php endif; ?>
                                     </div>
