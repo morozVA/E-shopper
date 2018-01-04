@@ -101,11 +101,11 @@ use \yii\helpers\Url;
                         <span>
 									<span>US $<?= $product->price ?></span>
 									<label>Quantity:</label>
-									<input type="text" value="1"/>
-									<button type="button" class="btn btn-fefault cart">
+									<input type="text" value="1" id="qty"/>
+									<a href="<?= Url::to(['cart/add', 'id' => $product->id]); ?>" data-id="<?= $product->id; ?>" class="btn add-to-cart btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
-									</button>
+									</a>
 								</span>
                         <p><b>Brand:</b> <a
                                     href="<?= Url::to(['category/view', 'id' => $product->category->id]); ?>"><?= $product->category->name; ?></a>
