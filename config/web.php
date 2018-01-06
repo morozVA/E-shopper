@@ -9,6 +9,12 @@ $config = [
     'bootstrap' => ['log'],
     'language' => 'ru_RU',
     'defaultRoute' => 'category/index',
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin',
+        ],
+    ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm' => '@vendor/npm-asset',
@@ -25,6 +31,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            //'loginUrl' => 'cart',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
