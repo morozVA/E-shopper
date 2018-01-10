@@ -7,12 +7,12 @@ use Yii;
 /**
  * This is the model class for table "order_items".
  *
- * @property int $id
- * @property int $order_id
- * @property int $product_id
+ * @property string $id
+ * @property string $order_id
+ * @property string $product_id
  * @property string $name
  * @property double $price
- * @property int $qty_item
+ * @property integer $qty_item
  * @property double $sum_item
  */
 class OrderItems extends \yii\db\ActiveRecord
@@ -25,11 +25,7 @@ class OrderItems extends \yii\db\ActiveRecord
         return 'order_items';
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrder()
-    {
+    public function getOrder(){
         return $this->hasOne(Order::className(), ['id' => 'order_id']);
     }
 

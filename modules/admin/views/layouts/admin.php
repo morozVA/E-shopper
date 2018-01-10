@@ -1,7 +1,6 @@
 <?php
 
 /* @var $this \yii\web\View */
-
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -10,8 +9,6 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
-use \yii\bootstrap\Modal;
-use \yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -31,13 +28,11 @@ ltAppAsset::register($this);
         //        $this->registerJsFile('js/respond.min.js', ['position' => \yii\web\View::POS_HEAD, 'condition' => 'lte IE9']);
         ?>
 
-        <link rel="shortcut icon" href="/images/ico/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144"
-              href="/images/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114"
-              href="/images/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
 
     <body>
@@ -74,12 +69,11 @@ ltAppAsset::register($this);
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="<?= Url::home() ?>"><?= Html::img('@web/images/home/logo.png', ['alt' => 'E-SHOPPER']) ?></a>
+                            <a href="<?= \yii\helpers\Url::home()?>"><?= Html::img('@web/images/home/logo.png', ['alt' => 'E-SHOPPER'])?></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa"
-                                        data-toggle="dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     USA
                                     <span class="caret"></span>
                                 </button>
@@ -90,8 +84,7 @@ ltAppAsset::register($this);
                             </div>
 
                             <div class="btn-group">
-                                <button type="button" class="btn btn-default dropdown-toggle usa"
-                                        data-toggle="dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
                                     DOLLAR
                                     <span class="caret"></span>
                                 </button>
@@ -105,16 +98,13 @@ ltAppAsset::register($this);
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <?php if (!Yii::$app->user->isGuest) : ?>
-                                    <li><a href="<?= Url::to(['/site/logout']); ?>"><i class="fa fa-user"></i><?= Yii::$app->user->identity['username']; ?> (Выйти)</a></li>
-                                <?php else: ?>
-                                    <li><a href="<?= Url::to(['/admin']); ?>"><i class="fa fa-lock"></i> Login</a></li>
-                                <?php endif; ?>
+                                <?php if(!Yii::$app->user->isGuest): ?>
+                                    <li><a href="<?= \yii\helpers\Url::to(['/site/logout'])?>"><i class="fa fa-user"></i> <?= Yii::$app->user->identity['username']?> (Выход)</a></li>
+                                <?php endif;?>
                                 <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                 <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a>
-                                </li>
-
+                                <li><a href="#" onclick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
                             </ul>
                         </div>
                     </div>
@@ -127,8 +117,7 @@ ltAppAsset::register($this);
                 <div class="row">
                     <div class="col-sm-9">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                    data-target=".navbar-collapse">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -154,7 +143,7 @@ ltAppAsset::register($this);
                     </div>
                     <div class="col-sm-3">
                         <div class="search_box pull-right">
-                            <form method="get" action="<?= Url::to(['category/search']) ?>">
+                            <form method="get" action="<?= \yii\helpers\Url::to(['category/search'])?>">
                                 <input type="text" placeholder="Search" name="q">
                             </form>
                         </div>
@@ -164,13 +153,15 @@ ltAppAsset::register($this);
         </div><!--/header-bottom-->
     </header><!--/header-->
 
-    <?php if( Yii::$app->session->hasFlash('success') ): ?>
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <?php echo Yii::$app->session->getFlash('success'); ?>
-        </div>
-    <?php endif;?>
-    <div class="container"><?= $content ?></div>
+    <div class="container">
+        <?php if( Yii::$app->session->hasFlash('success') ): ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <?php echo Yii::$app->session->getFlash('success'); ?>
+            </div>
+        <?php endif;?>
+        <?= $content ?>
+    </div>
 
     <footer id="footer"><!--Footer-->
         <div class="footer-top">
@@ -187,7 +178,7 @@ ltAppAsset::register($this);
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="/images/home/iframe1.png" alt=""/>
+                                        <img src="/images/home/iframe1.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -202,7 +193,7 @@ ltAppAsset::register($this);
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="/images/home/iframe2.png" alt=""/>
+                                        <img src="/images/home/iframe2.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -217,7 +208,7 @@ ltAppAsset::register($this);
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="/images/home/iframe3.png" alt=""/>
+                                        <img src="/images/home/iframe3.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -232,7 +223,7 @@ ltAppAsset::register($this);
                             <div class="video-gallery text-center">
                                 <a href="#">
                                     <div class="iframe-img">
-                                        <img src="/images/home/iframe4.png" alt=""/>
+                                        <img src="/images/home/iframe4.png" alt="" />
                                     </div>
                                     <div class="overlay-icon">
                                         <i class="fa fa-play-circle-o"></i>
@@ -245,7 +236,7 @@ ltAppAsset::register($this);
                     </div>
                     <div class="col-sm-3">
                         <div class="address">
-                            <img src="/images/home/map.png" alt=""/>
+                            <img src="/images/home/map.png" alt="" />
                             <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                         </div>
                     </div>
@@ -308,10 +299,9 @@ ltAppAsset::register($this);
                         <div class="single-widget">
                             <h2>About Shopper</h2>
                             <form action="#" class="searchform">
-                                <input type="text" placeholder="Your email address"/>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i>
-                                </button>
-                                <p>Get the most recent updates from <br/>our site and be updated your self...</p>
+                                <input type="text" placeholder="Your email address" />
+                                <button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+                                <p>Get the most recent updates from <br />our site and be updated your self...</p>
                             </form>
                         </div>
                     </div>
@@ -324,14 +314,12 @@ ltAppAsset::register($this);
             <div class="container">
                 <div class="row">
                     <p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span>
-                    </p>
+                    <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
                 </div>
             </div>
         </div>
 
     </footer><!--/Footer-->
-
 
     <?php $this->endBody() ?>
     </body>

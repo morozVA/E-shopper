@@ -14,9 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']); ?>
+        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
@@ -34,11 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html',
             ],
-            //'status',
-            //'name',
-            //'email:email',
-            //'phone',
-            //'address',
+//            'status',
+            // 'name',
+            // 'email:email',
+            // 'phone',
+            // 'address',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

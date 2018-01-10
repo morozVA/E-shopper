@@ -1,35 +1,27 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lenovo
- * Date: 02.01.2018
- * Time: 14:13
+ * User: Andrey
+ * Date: 09.05.2016
+ * Time: 10:50
  */
 
 namespace app\controllers;
-
 use app\models\Category;
 use app\models\Product;
-use yii\web\HttpException;
 use Yii;
 
-class ProductController extends AppController
-{
-    /**
-     * @param $id
-     * @return string
-     */
-    public function actionView($id)
-    {
-        $hits = Product::find()->where(['hit' => '1'])->limit(6)->all();
-        $id = Yii::$app->request->get('id');
+class ProductController extends AppController{
+
+    public function actionView($id){
+//        $id = Yii::$app->request->get('id');
         $product = Product::findOne($id);
-        if(empty($product)){
-            throw new HttpException(404, 'The requested item could not be found');
-        }
-        $this->setMeta('E-shopper | ' . $product->name, $product->keywords, $product->description);
-        //$product = Product::find()->with('category')->where(['id' => $id])->limit(1)->one();
+        if(empty($product))
+            throw new \yii\web\HttpException(404, 'Такого товара нет');
+//        $product = Product::find()->with('category')->where(['id' => $id])->limit(1)->one();
+        $hits = Product::find()->where(['hit' => '1'])->limit(6)->all();
+        $this->setMeta('E-SHOPPER | ' . $product->name, $product->keywords, $product->description);
         return $this->render('view', compact('product', 'hits'));
     }
 
-}
+} 

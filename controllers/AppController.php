@@ -1,31 +1,20 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lenovo
- * Date: 01.01.2018
- * Time: 14:12
+ * User: Andrey
+ * Date: 08.05.2016
+ * Time: 10:00
  */
 
 namespace app\controllers;
-
 use yii\web\Controller;
 
-class AppController extends Controller
-{
+class AppController extends Controller{
 
-    /**
-     * @param null $title
-     * @param null $keywords
-     * @param null $description
-     */
-    protected function setMeta($title = null, $keywords = null, $description = null)
-    {
-
+    protected function setMeta($title = null, $keywords = null, $description = null){
         $this->view->title = $title;
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => "$keywords"]);
         $this->view->registerMetaTag(['name' => 'description', 'content' => "$description"]);
-
     }
 
-
-}
+} 

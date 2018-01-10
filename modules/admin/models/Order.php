@@ -7,10 +7,10 @@ use Yii;
 /**
  * This is the model class for table "order".
  *
- * @property int $id
+ * @property string $id
  * @property string $created_at
  * @property string $updated_at
- * @property int $qty
+ * @property integer $qty
  * @property double $sum
  * @property string $status
  * @property string $name
@@ -28,11 +28,7 @@ class Order extends \yii\db\ActiveRecord
         return 'order';
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrderItems()
-    {
+    public function getOrderItems(){
         return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
     }
 
@@ -57,14 +53,14 @@ class Order extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'Номер заказа',
+            'id' => '№ заказа',
             'created_at' => 'Дата создания',
             'updated_at' => 'Дата изменения',
-            'qty' => 'Количество',
+            'qty' => 'Кол-во',
             'sum' => 'Сумма',
             'status' => 'Статус',
             'name' => 'Имя',
-            'email' => 'Email',
+            'email' => 'E-mail',
             'phone' => 'Телефон',
             'address' => 'Адрес',
         ];

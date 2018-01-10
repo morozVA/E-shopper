@@ -2,18 +2,18 @@
 
 namespace app\models;
 
+use yii\db\ActiveRecord;
 use Yii;
-use \yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 
 /**
  * This is the model class for table "order".
  *
- * @property int $id
+ * @property string $id
  * @property string $created_at
  * @property string $updated_at
- * @property int $qty
+ * @property integer $qty
  * @property double $sum
  * @property string $status
  * @property string $name
@@ -31,8 +31,7 @@ class Order extends ActiveRecord
         return 'order';
     }
 
-    public function behaviors()
-    {
+    public function behaviors(){
         return [
             [
                 'class' => TimestampBehavior::className(),
@@ -46,11 +45,7 @@ class Order extends ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getOrderItems()
-    {
+    public function getOrderItems(){
         return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
     }
 
@@ -76,7 +71,7 @@ class Order extends ActiveRecord
     {
         return [
             'name' => 'Имя',
-            'email' => 'Email',
+            'email' => 'E-mail',
             'phone' => 'Телефон',
             'address' => 'Адрес',
         ];
